@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "title": "Spell",
+  "description": "Describes the metadata, mechanics, and structure of a D&D spell.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A unique identifier (e.g., 'spell:fireball')"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the spell"
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9
+    },
+    "school": {
+      "type": "string",
+      "enum": [
+        "Abjuration", "Conjuration", "Divination", "Enchantment",
+        "Evocation", "Illusion", "Necromancy", "Transmutation"
+      ]
+    },
+    "casting_time": {
+      "type": "string",
+      "description": "e.g., '1 action', '1 minute'"
+    },
+    "range": {
+      "type": "string",
+      "description": "e.g., '60 feet', 'Touch', 'Self (30 ft radius)'"
+    },
+    "duration": {
+      "type": "string",
+      "description": "e.g., 'Instantaneous', 'Concentration, up to 1 minute'"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["V", "S", "M"]
+      },
+      "description": "Verbal, Somatic, Material"
+    },
+    "materials": {
+      "type": "string",
+      "description": "Only required if 'M' is in components"
+    },
+    "requires_concentration": {
+      "type": "boolean",
+      "default": false
+    },
+    "damage": {
+      "type": "string",
+      "description": "Damage formula in dice notation, e.g., '8d6 fire'"
+    },
+    "saving_throw": {
+      "type": "string",
+      "enum": ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+    },
+    "effect": {
+      "type": "string",
+      "description": "Free-text effect summary"
+    },
+    "targets": {
+      "type": "string",
+      "description": "Target type (e.g., creature, area, self)"
+    },
+    "area_of_effect": {
+      "type": "string",
+      "description": "If applicable (e.g., '20-foot-radius sphere')"
+    }
+  },
+  "required": ["id", "name", "level", "school", "duration"]
+}

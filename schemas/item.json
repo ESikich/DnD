@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "title": "Item",
+  "description": "Items are generated dynamically by the AI but validated against this schema.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A unique identifier for the item (e.g., 'item:healing_potion')"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["weapon", "armor", "tool", "consumable", "magic", "misc"]
+    },
+    "rarity": {
+      "type": "string",
+      "enum": ["common", "uncommon", "rare", "very_rare", "legendary", "artifact"]
+    },
+    "effect": {
+      "type": "string",
+      "description": "Free-text summary of the item's primary effect"
+    },
+    "damage": {
+      "type": "string",
+      "description": "Dice notation for damage if applicable (e.g., '1d6+2')"
+    },
+    "ac_bonus": {
+      "type": "integer",
+      "description": "Bonus to Armor Class, if applicable"
+    },
+    "charges": {
+      "type": "integer",
+      "description": "Number of charges if it's a magical item"
+    },
+    "requires_attunement": {
+      "type": "boolean",
+      "default": false
+    },
+    "weight": {
+      "type": "number"
+    }
+  },
+  "required": ["id", "name", "type", "effect"]
+}

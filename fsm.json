@@ -1,0 +1,442 @@
+{
+  "initial": "exploration.overworld",
+  "states": {
+    "exploration.overworld": {
+      "on_enter": [
+        "describe_location"
+      ],
+      "transitions": [
+        {
+          "trigger": "meet_npc",
+          "target": "social.parley"
+        },
+        {
+          "trigger": "enter_dungeon",
+          "target": "exploration.dungeon"
+        },
+        {
+          "trigger": "discover_point_of_interest",
+          "target": "exploration.poi"
+        },
+        {
+          "trigger": "start_combat",
+          "target": "combat.initiative"
+        },
+        {
+          "trigger": "start_rest",
+          "target": "resting.short"
+        }
+      ]
+    },
+    "exploration.dungeon": {
+      "on_enter": [
+        "describe_dungeon"
+      ],
+      "transitions": [
+        {
+          "trigger": "start_combat",
+          "target": "combat.initiative"
+        },
+        {
+          "trigger": "start_rest",
+          "target": "resting.short"
+        },
+        {
+          "trigger": "exit_dungeon",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "exploration.poi": {
+      "on_enter": [
+        "describe_point_of_interest"
+      ],
+      "transitions": [
+        {
+          "trigger": "leave_area",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "start_combat",
+          "target": "combat.initiative"
+        }
+      ]
+    },
+    "social.parley": {
+      "on_enter": [
+        "describe_npc_dialogue"
+      ],
+      "transitions": [
+        {
+          "trigger": "end_conversation",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "start_combat",
+          "target": "combat.initiative"
+        },
+        {
+          "trigger": "check_persuasion",
+          "target": "check.persuasion"
+        },
+        {
+          "trigger": "check_deception",
+          "target": "check.deception"
+        },
+        {
+          "trigger": "check_insight",
+          "target": "check.insight"
+        },
+        {
+          "trigger": "check_intimidation",
+          "target": "check.intimidation"
+        },
+        {
+          "trigger": "check_performance",
+          "target": "check.performance"
+        }
+      ]
+    },
+    "combat.initiative": {
+      "on_enter": [
+        "roll_initiative"
+      ],
+      "transitions": [
+        {
+          "trigger": "initiative_set",
+          "target": "combat.turn"
+        }
+      ]
+    },
+    "combat.turn": {
+      "on_enter": [
+        "start_turn"
+      ],
+      "transitions": [
+        {
+          "trigger": "end_turn",
+          "target": "combat.turn"
+        },
+        {
+          "trigger": "end_combat",
+          "target": "combat.end"
+        }
+      ]
+    },
+    "combat.end": {
+      "on_enter": [
+        "end_combat"
+      ],
+      "transitions": [
+        {
+          "trigger": "combat_cleanup_complete",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "resting.short": {
+      "on_enter": [
+        "apply_short_rest"
+      ],
+      "transitions": [
+        {
+          "trigger": "rest_complete",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "ambushed",
+          "target": "combat.initiative"
+        },
+        {
+          "trigger": "start_long_rest",
+          "target": "resting.long"
+        }
+      ]
+    },
+    "resting.long": {
+      "on_enter": [
+        "apply_long_rest"
+      ],
+      "transitions": [
+        {
+          "trigger": "rest_complete",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "ambushed",
+          "target": "combat.initiative"
+        }
+      ]
+    },
+    "check.acrobatics": {
+      "on_enter": [
+        "ability_check_acrobatics"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.animal_handling": {
+      "on_enter": [
+        "ability_check_animal_handling"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.arcana": {
+      "on_enter": [
+        "ability_check_arcana"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.athletics": {
+      "on_enter": [
+        "ability_check_athletics"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.deception": {
+      "on_enter": [
+        "ability_check_deception"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.history": {
+      "on_enter": [
+        "ability_check_history"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.insight": {
+      "on_enter": [
+        "ability_check_insight"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.intimidation": {
+      "on_enter": [
+        "ability_check_intimidation"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.investigation": {
+      "on_enter": [
+        "ability_check_investigation"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.medicine": {
+      "on_enter": [
+        "ability_check_medicine"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.nature": {
+      "on_enter": [
+        "ability_check_nature"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.perception": {
+      "on_enter": [
+        "ability_check_perception"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.performance": {
+      "on_enter": [
+        "ability_check_performance"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.persuasion": {
+      "on_enter": [
+        "ability_check_persuasion"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.religion": {
+      "on_enter": [
+        "ability_check_religion"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.sleight_of_hand": {
+      "on_enter": [
+        "ability_check_sleight_of_hand"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.stealth": {
+      "on_enter": [
+        "ability_check_stealth"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    },
+    "check.survival": {
+      "on_enter": [
+        "ability_check_survival"
+      ],
+      "transitions": [
+        {
+          "trigger": "check_passed",
+          "target": "exploration.overworld"
+        },
+        {
+          "trigger": "check_failed",
+          "target": "exploration.overworld"
+        }
+      ]
+    }
+  }
+}

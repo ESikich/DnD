@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the entity"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["character", "monster", "npc"]
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "class": {
+      "type": "string"
+    },
+    "race": {
+      "type": "string"
+    },
+    "hp": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hp_max": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "ac": {
+      "type": "integer"
+    },
+    "speed": {
+      "type": "integer"
+    },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "STR": { "type": "integer" },
+        "DEX": { "type": "integer" },
+        "CON": { "type": "integer" },
+        "INT": { "type": "integer" },
+        "WIS": { "type": "integer" },
+        "CHA": { "type": "integer" }
+      },
+      "required": ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+    },
+    "proficiencies": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "proficient": { "type": "boolean" }
+        },
+        "required": ["name", "proficient"]
+      }
+    },
+    "spells": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "features": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "inventory": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "initiative": {
+      "type": "integer"
+    },
+    "is_concentrating": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "type",
+    "hp",
+    "hp_max",
+    "ac",
+    "stats"
+  ]
+}

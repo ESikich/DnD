@@ -1,0 +1,34 @@
+{
+  "enabled_modules": [
+    {
+      "name": "combat",
+      "description": "Handles initiative, turn order, attack resolution, and end-of-combat cleanup.",
+      "version": "1.0"
+    },
+    {
+      "name": "magic",
+      "description": "Supports spell slot tracking, concentration, casting rules, and spell effects.",
+      "version": "1.0"
+    },
+    {
+      "name": "conditions",
+      "description": "Manages status effects like prone, grappled, blinded, poisoned, etc.",
+      "version": "1.0"
+    },
+    {
+      "name": "resting",
+      "description": "Implements short and long rest recovery logic and triggers.",
+      "version": "1.0"
+    },
+    {
+      "name": "inventory",
+      "description": "Tracks equipment, items, and consumable use.",
+      "version": "1.0"
+    },
+    {
+      "name": "social",
+      "description": "Handles dialogue, persuasion, deception, and parley transitions.",
+      "version": "1.0"
+    }
+  ]
+}

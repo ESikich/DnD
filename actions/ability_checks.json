@@ -1,0 +1,22 @@
+{
+  "checks": [
+    { "skill": "acrobatics",         "action": "check_acrobatics" },
+    { "skill": "animal_handling",    "action": "check_animal_handling" },
+    { "skill": "arcana",             "action": "check_arcana" },
+    { "skill": "athletics",          "action": "check_athletics" },
+    { "skill": "deception",          "action": "check_deception" },
+    { "skill": "history",            "action": "check_history" },
+    { "skill": "insight",            "action": "check_insight" },
+    { "skill": "intimidation",       "action": "check_intimidation" },
+    { "skill": "investigation",      "action": "check_investigation" },
+    { "skill": "medicine",           "action": "check_medicine" },
+    { "skill": "nature",             "action": "check_nature" },
+    { "skill": "perception",         "action": "check_perception" },
+    { "skill": "performance",        "action": "check_performance" },
+    { "skill": "persuasion",         "action": "check_persuasion" },
+    { "skill": "religion",           "action": "check_religion" },
+    { "skill": "sleight_of_hand",    "action": "check_sleight_of_hand" },
+    { "skill": "stealth",            "action": "check_stealth" },
+    { "skill": "survival",           "action": "check_survival" }
+  ]
+}

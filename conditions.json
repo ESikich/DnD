@@ -1,0 +1,82 @@
+{
+  "blinded": {
+    "disadvantage_on": ["attack_rolls"],
+    "auto_fail": ["ability_checks_requiring_sight"],
+    "grants_advantage_to": ["attackers"]
+  },
+  "charmed": {
+    "cannot_attack_or_target": ["charmer"],
+    "disadvantage_on": ["ability_checks_against_charmer"]
+  },
+  "deafened": {
+    "auto_fail": ["ability_checks_requiring_hearing"]
+  },
+  "fatigued": {
+    "levels": {
+      "1": { "disadvantage_on": ["ability_checks"] },
+      "2": { "speed_multiplier": 0.5 },
+      "3": { "disadvantage_on": ["attack_rolls", "saving_throws"] },
+      "4": { "hp_max_multiplier": 0.5 },
+      "5": { "speed": 0 },
+      "6": { "unconscious": true }
+    }
+  },
+  "frightened": {
+    "disadvantage_on": ["ability_checks", "attack_rolls_while_source_visible"],
+    "cannot_move_toward": ["source"]
+  },
+  "grappled": {
+    "speed": 0,
+    "escape_dc": 12
+  },
+  "incapacitated": {
+    "cannot": ["take_actions", "take_reactions"]
+  },
+  "invisible": {
+    "grants_advantage_to": ["attacks_by"],
+    "grants_disadvantage_to": ["attacks_against"],
+    "undetectable_by": ["sight"]
+  },
+  "paralyzed": {
+    "incapacitated": true,
+    "cannot": ["move", "speak"],
+    "auto_fail": ["STR_saves", "DEX_saves"],
+    "grants_advantage_to": ["attacks_against"],
+    "melee_crits_if_within_5ft": true
+  },
+  "petrified": {
+    "type_override": "object",
+    "incapacitated": true,
+    "cannot": ["move", "speak"],
+    "resistance_to": ["all_damage"],
+    "immune_to": ["poison", "disease"]
+  },
+  "poisoned": {
+    "disadvantage_on": ["attack_rolls", "ability_checks"]
+  },
+  "prone": {
+    "melee_attackers": "advantage",
+    "ranged_attackers": "disadvantage",
+    "movement_cost_multiplier": 2,
+    "must_stand_to_move": true
+  },
+  "restrained": {
+    "speed": 0,
+    "disadvantage_on": ["attack_rolls"],
+    "grants_advantage_to": ["attacks_against"],
+    "disadvantage_on_saves": ["DEX"]
+  },
+  "stunned": {
+    "incapacitated": true,
+    "cannot": ["move"],
+    "auto_fail": ["STR_saves", "DEX_saves"],
+    "grants_advantage_to": ["attacks_against"]
+  },
+  "unconscious": {
+    "incapacitated": true,
+    "cannot": ["move", "speak"],
+    "grants_advantage_to": ["attacks_against"],
+    "auto_fail": ["STR_saves", "DEX_saves"],
+    "melee_crits_if_within_5ft": true
+  }
+}
